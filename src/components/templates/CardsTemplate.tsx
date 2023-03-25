@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
-import { ICardProps } from "../UI/organisms/Card";
-import { ISlider } from "../UI/organisms/Slider.props";
+import { ISlider } from "../UI/organisms/CardsSlider";
 
-import { ISliderProps } from "../UI/organisms/Slider.props";
 import { ICardsPanel } from "../UI/organisms/CardsPanel";
 
 import CardsSlider from "../UI/organisms/CardsSlider";
@@ -15,7 +13,7 @@ const CardsWrapper = styled.div`
     margin: 80px auto;
 `;
 
-interface ICardsTemplateSliderProps extends ISliderProps {
+interface ICardsTemplateSliderProps extends ISlider {
     type: "slider";
 }
 

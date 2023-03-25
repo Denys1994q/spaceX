@@ -11,18 +11,21 @@ const CardsSliderTitleWrapper = styled.div`
 `;
 
 interface ICardsSliderTitleProps {
-    prevSrc: string;
-    nextSrc: string;
+    prevSrc?: string;
+    nextSrc?: string;
     sliderTitle: string;
     onPrevBtn: any;
-    onNextBtn: any
+    onNextBtn: any;
 }
 
-const CardsSliderTitle = ({ prevSrc, nextSrc, sliderTitle, onPrevBtn, onNextBtn }: ICardsSliderTitleProps): JSX.Element => {
+const prev = require("../../../images/prev-icon.svg").default;
+const next = require("../../../images/next-icon.svg").default;
+
+const CardsSliderTitle = ({ sliderTitle, onPrevBtn, onNextBtn }: ICardsSliderTitleProps): JSX.Element => {
     return (
         <CardsSliderTitleWrapper>
             <TitleSecondary text={sliderTitle} />
-            <SliderController prevSrc={prevSrc} nextSrc={nextSrc} onPrevBtn={onPrevBtn} onNextBtn={onNextBtn} />
+            <SliderController prevSrc={prev} nextSrc={next} onPrevBtn={onPrevBtn} onNextBtn={onNextBtn} />
         </CardsSliderTitleWrapper>
     );
 };

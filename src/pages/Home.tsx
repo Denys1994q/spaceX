@@ -38,22 +38,7 @@ const Home = (): JSX.Element => {
                 arrowDownSrc={arrowDown}
                 bannerImg={bannerSlidesImgs[bannerActiveSlide]}
             />
-            <CardsTemplate
-                type='slider'
-                slider={{
-                    slidesImgs: cardsSlidesImgs,
-                    prevBtnSrc: require("../images/prev-icon.svg").default,
-                    nextBtnSrc: require("../images/next-icon.svg").default,
-                    offset: 3,
-                }}
-                card={{
-                    pictureSrc: require("../images/earth.png"),
-                    titleText: "extraordinary tour",
-                    paragraphValue: "Lorem ipsum dolor sit amet consectetur adipiscing elit",
-                    imgBtnSrc: require("../images/heart.png"),
-                    textBtnValue: "buy",
-                }}
-            />
+            <CardsTemplate type='slider' sliderTitle='popular tours' data={cardsSlidesImgs} offset={3} />
         </section>
     );
 };
