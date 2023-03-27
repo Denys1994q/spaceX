@@ -9,8 +9,8 @@ const StyledTextItem = styled.div<any>`
     cursor: ${props => props.cursor};
 `;
 
-interface ITextBtnProps {
-    onClick?: () => void;
+export interface ITextItemProps {
+    textItemOnClick?: any;
     textItemValue: string;
     fontSize?: string;
     lineHeight?: string;
@@ -20,26 +20,10 @@ interface ITextBtnProps {
     cursor?: string;
 }
 
-const TextItem = ({
-    onClick,
-    textItemValue,
-    fontSize,
-    lineHeight,
-    color,
-    textShadow,
-    textAlign,
-    cursor,
-}: ITextBtnProps): JSX.Element => {
+const TextItem = (props: ITextItemProps): JSX.Element => {
     return (
-        <StyledTextItem
-            onClick={onClick}
-            fontSize={fontSize}
-            lineHeight={lineHeight}
-            color={color}
-            textAlign={textAlign}
-            textShadow={textShadow}
-            cursor={cursor}>
-            {textItemValue}
+        <StyledTextItem onClick={() => props.textItemOnClick()} {...props}>
+            {props.textItemValue}
         </StyledTextItem>
     );
 };

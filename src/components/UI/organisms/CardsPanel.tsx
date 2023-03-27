@@ -1,22 +1,26 @@
 import { ICardsBox } from "../molecules/CardsBox";
 
 import CardsBox from "../molecules/CardsBox";
-import TextItem from "../atoms/TextItem";
+import TextItem, { ITextItemProps } from "../atoms/TextItem";
 
-export interface ICardsPanel extends ICardsBox {}
+interface ICardsPanel extends ICardsBox, ITextItemProps {}
 
 const CardsPanel = (props: ICardsPanel) => {
     return (
         <>
-            <TextItem
-                textItemValue='Clear all'
-                fontSize={"24px"}
-                lineHeight={"29px"}
-                color={"#556B84"}
-                textShadow={"none"}
-                textAlign={"end"}
-                cursor='pointer'
-            />
+            {props.cardsBoxData.length > 0 && (
+                <TextItem
+                    {...props}
+                    textItemValue={props.textItemValue}
+                    fontSize={"24px"}
+                    lineHeight={"29px"}
+                    color={"#556B84"}
+                    textShadow={"none"}
+                    textAlign={"end"}
+                    cursor='pointer'
+                    textItemOnClick={() => props.textItemOnClick()}
+                />
+            )}
             <CardsBox {...props} />
         </>
     );

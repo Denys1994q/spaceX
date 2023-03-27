@@ -30,7 +30,7 @@ const NavBar = (props: INavBarProps) => {
         <StyledNavBar position={props.position}>
             <LogoLink {...props} />
             <NavbarLinks {...props} />
-            <BtnsPanel {...props} />
+            <BtnsPanel {...props} imgBtnLinkTo='favourites' />
         </StyledNavBar>
     );
 };

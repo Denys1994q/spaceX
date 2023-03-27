@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { createGlobalStyle } from "styled-components";
 import { BrowserRouter } from "react-router-dom";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { RecoilRoot } from "recoil";
 
 const Global = createGlobalStyle`
 * {
@@ -46,11 +48,21 @@ button,input,optgroup,select,textarea {
 `;
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
+
+const client = new ApolloClient({
+    uri: "https://spacex-production.up.railway.app/",
+    cache: new InMemoryCache(),
+});
+
 root.render(
     <React.StrictMode>
         <Global />
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
+        <ApolloProvider client={client as any}>
+            <BrowserRouter>
+                <RecoilRoot>
+                    <App />
+                </RecoilRoot>
+            </BrowserRouter>
+        </ApolloProvider>
     </React.StrictMode>
 );

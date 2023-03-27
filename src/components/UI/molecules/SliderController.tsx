@@ -17,8 +17,8 @@ const SliderControllerWrapper = styled.div<any>`
 const SliderController = ({ prevSrc, nextSrc, onPrevBtn, onNextBtn }: ISliderControllerProps) => {
     return (
         <SliderControllerWrapper>
-            <ImgBtn onClick={onPrevBtn} imgBtnSrc={prevSrc} imgBtnWidth='44px' imgBtnHeight='44px' />
-            <ImgBtn onClick={onNextBtn} imgBtnSrc={nextSrc} imgBtnWidth='44px' imgBtnHeight='44px' />
+            <ImgBtn imgBtnOnClick={onPrevBtn} imgBtnSrc={prevSrc} imgBtnWidth='44px' imgBtnHeight='44px' />
+            <ImgBtn imgBtnOnClick={onNextBtn} imgBtnSrc={nextSrc} imgBtnWidth='44px' imgBtnHeight='44px' />
         </SliderControllerWrapper>
     );
 };

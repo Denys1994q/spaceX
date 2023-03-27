@@ -1,6 +1,8 @@
+import styled from "styled-components";
+
 import TextItem from "../atoms/TextItem";
 import ArrowDown from "../atoms/Arrow-down";
-import styled from "styled-components";
+
 
 const StyledTextWithIcon = styled.div<any>`
     display: ${props => props.display};

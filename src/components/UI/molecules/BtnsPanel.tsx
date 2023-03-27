@@ -19,18 +19,18 @@ export interface IBtnsPanelProps extends IImgBtnProps {
     padding?: string;
 }
 
-const BtnsPanel = ({ imgBtnSrc, secondary, textBtnValue, imgBtnBackground }: IBtnsPanelProps): JSX.Element => {
+const BtnsPanel = (props: IBtnsPanelProps): JSX.Element => {
     return (
         <>
-            {secondary ? (
+            {props.secondary ? (
                 <StyledBtnsPanel>
-                    <TextBtn textBtnValue={textBtnValue} padding={"12px 112px"} />
-                    <ImgBtn imgBtnSrc={imgBtnSrc} imgBtnLinkTo='favourites' imgBtnBackground={imgBtnBackground} />
+                    <TextBtn {...props} padding={"12px 112px"} />
+                    <ImgBtn {...props} />
                 </StyledBtnsPanel>
             ) : (
                 <StyledBtnsPanel>
-                    <ImgBtn imgBtnSrc={imgBtnSrc} imgBtnLinkTo='favourites' imgBtnBackground={imgBtnBackground} />
-                    <TextBtn textBtnValue={textBtnValue} padding={"12px 20px"} />
+                    <ImgBtn {...props} />
+                    <TextBtn {...props} padding={"12px 20px"} />
                 </StyledBtnsPanel>
             )}
         </>

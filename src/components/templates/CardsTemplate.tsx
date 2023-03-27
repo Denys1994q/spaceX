@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 import { ISlider } from "../UI/organisms/CardsSlider";
-
-import { ICardsPanel } from "../UI/organisms/CardsPanel";
+import { ICardsBox } from "../UI/molecules/CardsBox";
 
 import CardsSlider from "../UI/organisms/CardsSlider";
 import CardsPanel from "../UI/organisms/CardsPanel";
+import { ITextItemProps } from "../UI/atoms/TextItem";
 
 const CardsWrapper = styled.div`
     max-width: 1440px;
@@ -17,7 +17,7 @@ interface ICardsTemplateSliderProps extends ISlider {
     type: "slider";
 }
 
-interface ICardsTemplatePanelProps extends ICardsPanel {
+interface ICardsTemplatePanelProps extends ICardsBox, ITextItemProps {
     type: "primary";
 }
 const CardsTemplate = (props: ICardsTemplateSliderProps | ICardsTemplatePanelProps) => {

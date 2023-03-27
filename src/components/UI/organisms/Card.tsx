@@ -10,6 +10,9 @@ import BtnsPanel from "../molecules/BtnsPanel";
 const CardWrapper = styled.div`
     width: 411px;
     border: 1px solid #d3eaff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 `;
 
 const CardInfoWrapper = styled.div`
@@ -39,6 +42,8 @@ const Card = (props: ICardProps): JSX.Element => {
                 <CardTitleWrapper>
                     <TitleWithDesc {...props} />
                 </CardTitleWrapper>
+            </CardInfoWrapper>
+            <CardInfoWrapper>
                 <BtnsPanel {...props} secondary />
             </CardInfoWrapper>
         </CardWrapper>

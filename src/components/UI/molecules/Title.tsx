@@ -1,7 +1,7 @@
 import TitleMain from "../atoms/TitleMain";
 import TitleSpan from "../atoms/TitleSpan";
 
-const Title = ({ text, spanText, mt }: any) => {
+const Title = ({ text, spanText }: any) => {
     return (
         <>
             <TitleMain text={text} />

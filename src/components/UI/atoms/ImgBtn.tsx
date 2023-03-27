@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 
 const StyledImgBtn = styled.button<any>`
     width: ${props => props.width || "53px"};
@@ -17,7 +18,7 @@ const StyledImg = styled.img`
 `;
 
 export interface IImgBtnProps {
-    onClick?: () => void;
+    imgBtnOnClick?: any;
     imgBtnSrc: string;
     imgBtnLinkTo?: string;
     imgBtnWidth?: string;
@@ -26,7 +27,7 @@ export interface IImgBtnProps {
 }
 
 const ImgBtn = ({
-    onClick,
+    imgBtnOnClick,
     imgBtnSrc,
     imgBtnLinkTo,
     imgBtnWidth,
@@ -36,17 +37,23 @@ const ImgBtn = ({
     return (
         <>
             {imgBtnLinkTo ? (
-                <Link to={imgBtnLinkTo}>
-                    <StyledImgBtn
-                        onClick={onClick}
-                        width={imgBtnWidth}
-                        height={imgBtnHeight}
-                        background={imgBtnBackground}>
-                        <StyledImg src={imgBtnSrc} />
-                    </StyledImgBtn>
-                </Link>
+                <ScrollLink to='start' spy={true} smooth={true} offset={-80} duration={300}>
+                    <Link to={imgBtnLinkTo}>
+                        <StyledImgBtn
+                            onClick={imgBtnOnClick}
+                            width={imgBtnWidth}
+                            height={imgBtnHeight}
+                            background={imgBtnBackground}>
+                            <StyledImg src={imgBtnSrc} />
+                        </StyledImgBtn>
+                    </Link>
+                </ScrollLink>
             ) : (
-                <StyledImgBtn onClick={onClick} width={imgBtnWidth} height={imgBtnHeight} background={imgBtnBackground}>
+                <StyledImgBtn
+                    onClick={imgBtnOnClick}
+                    width={imgBtnWidth}
+                    height={imgBtnHeight}
+                    background={imgBtnBackground}>
                     <StyledImg src={imgBtnSrc} />
                 </StyledImgBtn>
             )}

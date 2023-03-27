@@ -1,10 +1,15 @@
 import styled from "styled-components";
 import { useState, useEffect } from "react";
-import { v4 as uuidv4 } from "uuid";
+import { useSetRecoilState, useRecoilValue, useRecoilState } from "recoil";
+import { favouritesToursState } from "../../../state";
 
 import CardsSliderTitle from "./CardsSliderTitle";
 import SliderDots from "../molecules/SliderDots";
 import Card from "./Card";
+
+const earthImg = require("../../../images/earth.png");
+const girlImg = require("../../../images/girl.png");
+const astronautImg = require("../../../images/astronaut.png");
 
 const CardBox = styled.ul`
     display: flex;
@@ -13,10 +18,17 @@ const CardBox = styled.ul`
     row-gap: 15px;
 `;
 
+const StyledLi = styled.li`
+    display: flex;
+`;
+
 const SliderDotsWrapper = styled.div`
     position: relative;
     margin-top: 40px;
 `;
+
+const favBtn = require("../../../images/heart.png");
+const favBtnWhite = require("../../../images/heart-white.png");
 
 export interface ISlider {
     sliderTitle: string;
@@ -27,6 +39,10 @@ export interface ISlider {
 const CardsSlider = (props: ISlider): JSX.Element => {
     const [start, setStart] = useState(0);
     const [activeSlide, setActiveSlide] = useState(0);
+
+    const favouriteTours = useRecoilValue<any>(favouritesToursState);
+    const setFavoutitesTours = useSetRecoilState(favouritesToursState);
+    const [_favouritesToursState, setFavouritesToursState] = useRecoilState(favouritesToursState);
 
     const showNextSlides = () => {
         if (start < props.data.length - props.offset) {
@@ -50,18 +66,41 @@ const CardsSlider = (props: ISlider): JSX.Element => {
         setStart(activeSlide * props.offset);
     }, [activeSlide]);
 
+    const staticSlidesImgs = [earthImg, girlImg, astronautImg, earthImg];
+
+    const imgBtnOnClickFunc = (newItem: any, index: any) => {
+        // якщо є списку, видаляємо
+        if (favouriteTours.find((it: any) => it.id === newItem.id)) {
+            const newList = _favouritesToursState.filter((_item: any) => _item.id !== newItem.id);
+            setFavouritesToursState(newList);
+        } else {
+            // якщо немає, додаємо
+            setFavoutitesTours((old: any) => {
+                return [...old, { img: staticSlidesImgs[index], ...newItem }];
+            });
+        }
+    };
+
+    useEffect(() => {
+        window.localStorage.setItem("favourites", JSON.stringify(favouriteTours));
+    }, [favouriteTours]);
+
     const content = props.data.slice(start, start + props.offset).map((item: any, index: number) => {
         return (
-            <li>
+            <StyledLi>
                 <Card
-                    key={uuidv4()}
-                    pictureSrc={item}
-                    titleText={"koko"}
-                    paragraphValue={"lalala"}
-                    imgBtnSrc={""}
+                    key={item.id}
+                    pictureSrc={staticSlidesImgs[index]}
+                    titleText={item.name}
+                    paragraphValue={
+                        item.description.length > 65 ? item.description.slice(0, 65) + "..." : item.description
+                    }
+                    imgBtnSrc={favouriteTours.find((it: any) => it.id === item.id) ? favBtnWhite : favBtn}
+                    imgBtnBackground={favouriteTours.find((it: any) => it.id === item.id) ? "#dd377d" : ""}
+                    imgBtnOnClick={() => imgBtnOnClickFunc(item, index)}
                     textBtnValue='buy'
                 />
-            </li>
+            </StyledLi>
         );
     });
 

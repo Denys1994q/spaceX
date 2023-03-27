@@ -9,8 +9,8 @@ import FavouritesPage from "./pages/Favourites";
 const spaceLogo = require("./images/spaceX-logo.svg").default;
 
 const Wrapper = styled.div`
-    z-index: 5;
     position: relative;
+    z-index: 5;
     &:after {
         content: "";
         position: absolute;
@@ -34,7 +34,7 @@ function App(): JSX.Element {
 
     return (
         <>
-            <Wrapper>
+            <Wrapper id='start'>
                 <Inner>
                     <header>
                         <NavBar

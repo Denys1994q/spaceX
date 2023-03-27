@@ -38,8 +38,9 @@ const BannerSlider = ({
     arrowDownSrc,
     textItemValue,
 }: IBannerSliderProps) => {
+
     const onArrowClick = () => {
-        console.log(1);
+    //    window.scrollTo(0, 700)
     };
 
     return (

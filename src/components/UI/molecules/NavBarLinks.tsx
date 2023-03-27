@@ -1,5 +1,6 @@
-import NavbarLink from "../atoms/NavbarLink";
 import styled from "styled-components";
+
+import NavbarLink from "../atoms/NavbarLink";
 
 const StyledNavBarLinks = styled.ul`
     display: flex;
@@ -21,7 +22,7 @@ const NavbarLinks = ({ links }: INavbarLinks): JSX.Element => {
     const content = links.map((item: any) => {
         return (
             <li>
-                <NavbarLink to={item.to} children={item.text} />
+                    <NavbarLink to={item.to} children={item.text} />
             </li>
         );
     });
