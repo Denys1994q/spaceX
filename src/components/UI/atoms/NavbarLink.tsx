@@ -7,6 +7,7 @@ const StyledNavbarLink = styled(Link)`
     line-height: 19px;
     color: ${props => props.color || "#FFFFFF"};
     text-transform: uppercase;
+    padding-bottom: 4px;
     &:hover {
         color: rgb(221, 55, 125);
         border-bottom: 1px solid #ffffff;

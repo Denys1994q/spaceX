@@ -6,6 +6,7 @@ const StyledImgBtn = styled.button<any>`
     width: ${props => props.width || "53px"};
     height: ${props => props.height || "53px"};
     background: ${props => props.background || "#ececec"};
+    cursor: pointer;
     &:hover {
         background: #dd377d;
         transition: all 0.4s ease;

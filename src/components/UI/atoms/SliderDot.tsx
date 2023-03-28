@@ -11,6 +11,7 @@ const StyledSliderDot = styled.div<StyledSliderDotProps>`
     margin: 20px;
     border-radius: 50%;
     position: relative;
+    cursor: pointer;
     &.active {
         &:before {
             content: "";

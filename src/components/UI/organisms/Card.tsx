@@ -37,7 +37,7 @@ const CardInfoWrapper = styled.div`
 `;
 
 const CardTitleWrapper = styled.div`
-    margin-bottom: 64px;
+    margin: 28px 0 64px 0;
     @media (max-width: 400px) {
         margin-bottom: 22px;
     }

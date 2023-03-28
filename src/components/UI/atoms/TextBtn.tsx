@@ -13,6 +13,7 @@ const StyledTextBtn = styled.button<StyledTextBtnProps>`
     line-height: 29px;
     background: #d3eaff;
     text-transform: uppercase;
+    cursor: pointer;
     &:hover {
         transform: translateY(-4px);
         background: rgb(103 174 239);

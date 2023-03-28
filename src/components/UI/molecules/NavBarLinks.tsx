@@ -5,6 +5,7 @@ import NavbarLink from "../atoms/NavbarLink";
 
 const StyledNavBarLinks = styled.ul`
     display: flex;
+    flex-wrap: wrap;
     li:not(:last-child) {
         margin-right: 32px;
     }

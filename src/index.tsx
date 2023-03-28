@@ -36,6 +36,7 @@ h1 {
   padding: 0;
 }
 ul {
+  margin: 0;
   list-style: none;
 }
 button,input,optgroup,select,textarea {
