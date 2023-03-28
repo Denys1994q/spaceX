@@ -87,7 +87,7 @@ const CardsSlider = (props: ISlider): JSX.Element => {
 
     const content = props.data.slice(start, start + props.offset).map((item: any, index: number) => {
         return (
-            <StyledLi>
+            <StyledLi key={item.id}>
                 <Card
                     key={item.id}
                     pictureSrc={staticSlidesImgs[index]}

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { v4 as uuidv4 } from "uuid";
 
 import NavbarLink from "../atoms/NavbarLink";
 
@@ -21,8 +22,8 @@ export interface INavbarLinks {
 const NavbarLinks = ({ links }: INavbarLinks): JSX.Element => {
     const content = links.map((item: any) => {
         return (
-            <li>
-                    <NavbarLink to={item.to} children={item.text} />
+            <li key={uuidv4()}>
+                <NavbarLink to={item.to} children={item.text} />
             </li>
         );
     });

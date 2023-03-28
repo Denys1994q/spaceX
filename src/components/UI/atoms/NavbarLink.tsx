@@ -8,7 +8,7 @@ const StyledNavbarLink = styled(Link)`
     color: ${props => props.color || "#FFFFFF"};
     text-transform: uppercase;
     &:hover {
-        color: red;
+        color: rgb(221, 55, 125);
         border-bottom: 1px solid #ffffff;
         transition: all 0.4s ease;
     }

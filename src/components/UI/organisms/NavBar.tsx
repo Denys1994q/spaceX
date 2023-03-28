@@ -19,6 +19,11 @@ const StyledNavBar = styled.div<any>`
     padding: 13px 80px;
     z-index: 4;
     background: rgba(30, 30, 30, 0.48);
+    @media (max-width: 900px) {
+        justify-content: center;
+        gap: 15px;
+        padding: 13px;
+    }
 `;
 
 export interface INavBarProps extends ILogoLinkProps, INavbarLinks, IBtnsPanelProps {

@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-const StyledTextBtn = styled.button<any>`
+type StyledTextBtnProps = {
+    padding?: string;
+};
+
+const StyledTextBtn = styled.button<StyledTextBtnProps>`
     padding: ${props => props.padding};
     font-family: "Syne";
     font-style: normal;
@@ -19,11 +23,20 @@ const StyledTextBtn = styled.button<any>`
 interface ITextBtnProps {
     onClick?: () => void;
     textBtnValue: string;
-    padding?: string;
+    secondary?: boolean;
 }
 
-const TextBtn = ({ onClick, textBtnValue, padding }: ITextBtnProps): JSX.Element => {
-    return <StyledTextBtn onClick={onClick} padding={padding}>{textBtnValue}</StyledTextBtn>;
+let secondaryBtnPadding = "12px 112px";
+if (window.innerWidth < 1300) {
+    secondaryBtnPadding = "12px 70px";
+}
+
+const TextBtn = ({ onClick, textBtnValue, secondary }: ITextBtnProps): JSX.Element => {
+    return (
+        <StyledTextBtn onClick={onClick} padding={secondary ? secondaryBtnPadding : "12px 20px"}>
+            {textBtnValue}
+        </StyledTextBtn>
+    );
 };
 
 export default TextBtn;

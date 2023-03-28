@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, CSSProperties } from "react";
 import { useQuery } from "@apollo/client";
 import { TOURS_QUERY } from "../queries";
+import ClipLoader from "react-spinners/ClipLoader";
 
 import BannerTemplate from "../components/templates/BannerTemplate";
 import CardsTemplate from "../components/templates/CardsTemplate";
@@ -19,6 +20,20 @@ const Home = (): JSX.Element => {
 
     const { loading, error, data } = useQuery(TOURS_QUERY);
 
+    const loaderStyles: CSSProperties = {
+        display: "block",
+        margin: "0 auto",
+        borderColor: "black",
+    };
+
+    // кількість карток (слайдів) на сторінці залежно від розміру екрану
+    let offset = 3;
+    if (window.innerWidth < 1000 && window.innerWidth > 700) {
+        offset = 2;
+    } else if (window.innerWidth < 700) {
+        offset = 1;
+    }
+
     return (
         <section>
             <BannerTemplate
@@ -32,11 +47,13 @@ const Home = (): JSX.Element => {
                 arrowDownSrc={arrowDown}
                 bannerImg={bannerSlidesImgs[bannerActiveSlide]}
             />
-            {loading && "Loading"}
-            {error && "Sorry, something is wrong..."}
+            {loading && (
+                <ClipLoader loading={loading} cssOverride={loaderStyles} size={50} aria-label='Loading Spinner' />
+            )}
+            {error && <p>Sorry, something is wrong...</p>}
             {data && (
                 <div id='tours'>
-                    <CardsTemplate type='slider' sliderTitle='popular tours' data={data.rockets} offset={3} />
+                    <CardsTemplate type='slider' sliderTitle='popular tours' data={data.rockets} offset={offset} />
                 </div>
             )}
         </section>

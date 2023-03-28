@@ -8,6 +8,12 @@ const StyledTitle = styled.h2`
     line-height: 38px;
     text-transform: uppercase;
     color: #1e1e1e;
+    @media (max-width: 800px) {
+        font-size: 24px;
+    }
+    @media (max-width: 600px) {
+        font-size: 20px;
+    }
 `;
 
 interface ITitleProps {

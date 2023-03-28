@@ -1,6 +1,15 @@
 import styled from "styled-components";
 
-const StyledTextItem = styled.div<any>`
+type StyledTextItemProps = {
+    fontSize?: string;
+    color?: string;
+    lineHeight?: string;
+    textShadow?: string;
+    textAlign?: string;
+    cursor?: string;
+};
+
+const StyledTextItem = styled.div<StyledTextItemProps>`
     font-size: ${props => props.fontSize || "32px"};
     line-height: ${props => props.lineHeight || "38px"};
     color: ${props => props.color || "#ffffff"};
@@ -9,15 +18,9 @@ const StyledTextItem = styled.div<any>`
     cursor: ${props => props.cursor};
 `;
 
-export interface ITextItemProps {
+export interface ITextItemProps extends StyledTextItemProps {
     textItemOnClick?: any;
     textItemValue: string;
-    fontSize?: string;
-    lineHeight?: string;
-    color?: string;
-    textShadow?: string;
-    textAlign?: string;
-    cursor?: string;
 }
 
 const TextItem = (props: ITextItemProps): JSX.Element => {

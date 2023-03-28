@@ -25,6 +25,9 @@ const StyledSliderDot = styled.div<StyledSliderDotProps>`
             border-radius: 50%;
         }
     }
+    @media (max-width: 1200px) {
+        margin: 0;
+    }
 `;
 
 interface ISliderDotProps {

@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import { ICardProps } from "../organisms/Card";
-
 import Card from "../organisms/Card";
 
 const Wrapper = styled.ul`
@@ -32,9 +30,8 @@ export interface ICardsBox {
 const CardsBox = (props: ICardsBox) => {
     const content = props.cardsBoxData.map((item: CardItem) => {
         return (
-            <StyledLi>
+            <StyledLi key={item.id}>
                 <Card
-                    key={item.id}
                     {...props}
                     pictureSrc={item.img}
                     titleText={item.name}

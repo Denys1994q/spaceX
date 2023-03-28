@@ -13,24 +13,39 @@ const CardWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    @media (max-width: 1400px) {
+        width: 380px;
+    }
+    @media (max-width: 1300px) {
+        width: 300px;
+    }
+    @media (max-width: 400px) {
+        width: 100%;
+    }
 `;
 
 const CardInfoWrapper = styled.div`
     padding: 0 32px;
     text-align: center;
     margin-bottom: 22px;
+    @media (max-width: 1400px) {
+        padding: 0 12px;
+    }
+    @media (max-width: 400px) {
+        padding: 0 7px;
+    }
 `;
 
 const CardTitleWrapper = styled.div`
     margin-bottom: 64px;
+    @media (max-width: 400px) {
+        margin-bottom: 22px;
+    }
 `;
 
 export interface ICardProps extends IPictureProps, IBtnsPanelProps {
-    // card title
     titleText: string;
-    // card description
     paragraphValue: string;
-    // card btn
     imgBtnSrc: string;
 }
 

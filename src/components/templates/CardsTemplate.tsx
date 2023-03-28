@@ -11,6 +11,12 @@ const CardsWrapper = styled.div`
     max-width: 1440px;
     padding: 0 80px;
     margin: 80px auto;
+    @media (max-width: 1200px) {
+        padding: 0 30px;
+    }
+    @media (max-width: 600px) {
+        padding: 0 10px;
+    }
 `;
 
 interface ICardsTemplateSliderProps extends ISlider {

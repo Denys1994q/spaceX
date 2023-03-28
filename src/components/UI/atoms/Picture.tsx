@@ -3,6 +3,10 @@ import styled from "styled-components";
 const StyledPicture = styled.img`
     width: ${props => props.width || "411px"};
     height: ${props => props.height || "296px"};
+    @media (max-width: 1300px) {
+        width: auto;
+        height: 200px;
+    }
 `;
 
 export interface IPictureProps {

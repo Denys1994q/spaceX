@@ -8,6 +8,14 @@ const StyledTitleSpan = styled.span`
     line-height: 255px;
     color: #ffffff;
     text-transform: uppercase;
+    @media (max-width: 1200px) {
+        font-size: 168px;
+        line-height: 160px;
+    }
+    @media (max-width: 700px) {
+        font-size: 82px;
+        line-height: 110px;
+    }
 `;
 
 interface TitleSpanProps {

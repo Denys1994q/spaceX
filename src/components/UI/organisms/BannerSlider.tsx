@@ -39,10 +39,6 @@ const BannerSlider = ({
     textItemValue,
 }: IBannerSliderProps) => {
 
-    const onArrowClick = () => {
-    //    window.scrollTo(0, 700)
-    };
-
     return (
         <StyledBanner>
             <StyledTitleWrapper>
@@ -59,7 +55,6 @@ const BannerSlider = ({
                     display={"flex"}
                     textItemValue={textItemValue}
                     arrowDownSrc={arrowDownSrc}
-                    onArrowClick={onArrowClick}
                 />
             </StyledAnchorWrapper>
         </StyledBanner>

@@ -1,5 +1,7 @@
-import SliderDot from "../atoms/SliderDot";
 import styled from "styled-components";
+import { v4 as uuidv4 } from "uuid";
+
+import SliderDot from "../atoms/SliderDot";
 
 const StyledSliderDots = styled.ul<any>`
     display: flex;
@@ -16,6 +18,12 @@ const StyledSliderDots = styled.ul<any>`
     }
     li:not(:last-child) {
         margin-right: 8px;
+    }
+    @media (max-width: 1200px) {
+        padding-right: 0px;
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, 0);
     }
 `;
 
@@ -36,7 +44,7 @@ const SliderDots = ({
 }: ISliderDotsProps): JSX.Element => {
     const content = slidesImgs.map((item: any, index: number) => {
         return (
-            <li onClick={() => onDotClick(index)}>
+            <li key={uuidv4()} onClick={() => onDotClick(index)}>
                 <SliderDot key={index} dotColor={dotColor} className={activeSlideIndex === index ? "active" : ""} />
             </li>
         );

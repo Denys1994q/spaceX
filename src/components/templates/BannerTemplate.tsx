@@ -27,6 +27,9 @@ const BannerWrapper = styled.div<WrapperProps>`
         background: rgba(0, 0, 0, 0.5);
         z-index: 2;
     }
+    @media (max-width: 600px) {
+        margin-bottom: 20px;
+    }
 `;
 
 const Inner = styled.div`

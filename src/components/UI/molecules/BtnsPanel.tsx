@@ -24,13 +24,13 @@ const BtnsPanel = (props: IBtnsPanelProps): JSX.Element => {
         <>
             {props.secondary ? (
                 <StyledBtnsPanel>
-                    <TextBtn {...props} padding={"12px 112px"} />
+                    <TextBtn {...props} />
                     <ImgBtn {...props} />
                 </StyledBtnsPanel>
             ) : (
                 <StyledBtnsPanel>
                     <ImgBtn {...props} />
-                    <TextBtn {...props} padding={"12px 20px"} />
+                    <TextBtn {...props} />
                 </StyledBtnsPanel>
             )}
         </>
